@@ -1,0 +1,49 @@
+<!doctypehtml>
+  <html lang=en>
+  <meta charset=UTF-8>
+  <meta content="width=device-width,initial-scale=1" name=viewport>
+  <meta name="Description" content="Anlık tarih ve saati gösterir.">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      color: #fff;
+      background: #0f509d;
+      background: radial-gradient(circle, #0f509d 0, #00d4ff 100%);
+      align-items: center;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    .zaman {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      height: 100vh;
+      justify-content: center;
+      line-height: .8
+    }
+
+    .tarih {
+      font-size: 1em
+    }
+
+    .saat {
+      font-size: 7em;
+      font-weight: 900
+    }
+  </style>
+  <title>SAAT</title>
+
+  <body onload=sayac()>
+    <div class=zaman>
+      <div class=tarih></div>
+      <div class=saat></div>
+    </div>
+    <script>
+      function sayac() {
+        var e = new Date;
+        document.querySelector(".tarih").innerHTML = e.toLocaleDateString("tr-TR"),
+          document.querySelector(".saat").innerHTML = e.toLocaleTimeString("tr-TR")
+      }
+      setInterval(sayac, 1e3);
+    </script>
